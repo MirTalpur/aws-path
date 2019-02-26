@@ -1,5 +1,5 @@
-# aws-path
-# Project Overview:
+# aws-path (project)
+
 ## Account Basics
 Create an IAM user for your personal use.
 Set up MFA for your root user, turn off all root user API keys.
