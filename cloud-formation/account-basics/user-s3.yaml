@@ -1,0 +1,22 @@
+# Create a S3 bucket
+# Put in the lambda function which allows to creates the access keys and stores them in a s3 bucket
+# Call that function using cloud formation templates
+AWSTemplateFormatVersion: 2010-09-09
+Description: Template IAM S3 Bucket
+Parameters:
+  S3BucketName:
+    Description: S3 Bucket Name
+    Type: String
+    Default: hskalee123-user-storage-space-bucket
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: BucketOwnerFullControl
+      BucketName: !Ref S3BucketName
+Outputs:
+  S3Bucket:
+    Value: !Ref S3Bucket
+    Description: S3 Bucket Object
+    Export:
+      Name: s3-bucket-name

@@ -1,0 +1,31 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Template IAM User
+Parameters:
+  Password:
+    Type: String
+    NoEcho: true
+    Description: New Account Password
+    MinLength: 1
+    MaxLength: 41
+    ConstraintDescription: The password must be between 1 and 41 characters long
+    Default: password
+  UserName:
+    Description: UserName for IAM User
+    Type: String
+    Default: hskalee123
+Resources:
+  AdminUser:
+    Type: AWS::IAM::User
+    Properties:
+      Groups:
+        - !ImportValue user-group-name
+      UserName: !Ref UserName
+      LoginProfile:
+        Password: !Ref Password
+        PasswordResetRequired: true
+Outputs:
+  UserDetails:
+    Value: !Ref UserName
+    Description: AWS IAM User Name
+    Export:
+      Name: user-name-export

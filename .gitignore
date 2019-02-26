@@ -1,0 +1,6 @@
+credentials.csv
+accessKeys.csv
+venv/*
+env/*
+*/venv/*
+cloud-formation/account-basics/lambda/venv/*

@@ -1,0 +1,17 @@
+# This cloud formation template works but leaves a lot to be desired
+# For instance it shows all of the secret access keys right there in the
+# cloud formation template outputs
+AWSTemplateFormatVersion: 2010-09-09
+Description: Template IAM User
+Resources:
+  AccessKey:
+    Type: AWS::IAM::AccessKey
+    Properties:
+      UserName: !ImportValue user-name-export
+Outputs:
+  AccessKey:
+    Value: !ImportValue user-name-export
+    Description: AWSAccessKeysId of new Admin user
+  # SecretKey:
+  #   Value: !GetAtt AccessKey.SecretAccessKey
+  #   Description: AWSSecretKey of new Admin User
