@@ -12,6 +12,6 @@ Outputs:
   AccessKey:
     Value: !ImportValue user-name-export
     Description: AWSAccessKeysId of new Admin user
-  # SecretKey:
-  #   Value: !GetAtt AccessKey.SecretAccessKey
-  #   Description: AWSSecretKey of new Admin User
+  SecretKey:
+    Value: !GetAtt AccessKey.SecretAccessKey
+    Description: AWSSecretKey of new Admin User
